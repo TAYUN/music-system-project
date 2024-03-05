@@ -1,0 +1,96 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body,
+#app,
+.wrapper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'PingFang SC', "Helvetica Neue", Helvetica, "microsoft yahei", arial, STHeiTi, sans-serif;
+}
+
+a {
+    text-decoration: none
+}
+.content {
+    width: auto;
+    padding: 20px;
+}
+
+/* 内容区域 */
+.content-box {
+    position: absolute;
+    left: 150px;
+    right: 0;
+    top: 70px;
+    bottom: 0;
+    overflow-y: scroll;
+    -webkit-transition: left .3s ease-in-out;
+    transition: left .3s ease-in-out;
+    background: #f0f0f0;
+}
+/* 左侧菜单 */
+.content-collapse {
+    /* 菜单刚好缩进65px左右 */
+    left: 65px;
+    /* opacity: 0.5; */
+}
+/* 左侧菜单 */
+
+
+
+
+
+ /* 歌手管理内容页面 */
+.container {
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+
+ 
+  .table{
+    min-width: 800px;
+  }
+   /* 歌手管理内容页面 */
+
+
+/*  设置歌词滚动条样式 */
+.music-scrollbar {
+	width: 100%;
+	overflow: auto;
+	float: right;
+	margin: 5px;
+	border: none;
+	height: 100px;
+	cursor: pointer;
+
+}
+
+.music-scrollbar::-webkit-scrollbar {
+	/*滚动条整体样式*/
+	width: 10px; /*高宽分别对应横竖滚动条的尺寸*/
+	height: 1px;
+}
+.music-scrollbar::-webkit-scrollbar-thumb {
+
+	/*滚动条里面小方块*/
+	border-radius: 10px;
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	background: #535353;
+}
+.music-scrollbar::-webkit-scrollbar-track {
+	/*滚动条里面轨道*/
+	box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+	background: #ededed;
+}
+

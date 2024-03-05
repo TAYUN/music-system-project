@@ -1,0 +1,164 @@
+#gradient {
+	width: 100%;
+	height: 100%;
+	z-index: 100;
+	background-color: #fff;
+	z-index: 3000;
+  border-top: #ddd 1px solid;
+}
+// svg图片
+.player-svg {
+	display: none;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+	padding: 0 10px;
+	display: flex;
+	justify-content: space-between;
+	box-sizing: border-box;
+}
+/* 左侧 */
+.left-bar {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	padding: 0 20px;
+	.player-cover {
+		width: 80px;
+		height: 80px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.player-cover__item {
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		border-radius: 5px;
+		left: 0;
+		top: 0;
+	}
+	.album-info {
+		margin-left: 10px;
+		.album-info__track {
+			font-size: 16px;
+			font-weight: 600;
+		}
+		.album-info__name {
+			font-size: 16px;
+		}
+	}
+}
+// 中间控件
+.mid-player {
+	width: 500px;
+	.player-controls {
+		display: flex;
+		justify-content: center;
+
+		.player-controls__item {
+			display: inline-flex;
+			margin: 10px;
+			color: #acb8cc;
+			cursor: pointer;
+			width: 40px;
+			height: 40px;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+			transition: all 0.3s ease-in-out;
+		}
+		.player-controls__item.-xl {
+			width: 45px;
+			height: 45px;
+		}
+		.icon {
+			height: 100%;
+			width: 100%;
+		}
+	}
+	// 进度条
+	.progress {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		justify-items: center;
+
+		.progress__duration {
+			color: #71829e;
+			font-weight: 700;
+			font-size: 12px;
+			opacity: 0.5;
+		}
+
+		.progress__time {
+			// margin-top: 2px;
+			color: #71829e;
+			font-weight: 700;
+			font-size: 12px;
+			opacity: 0.7;
+		}
+
+		.progress__bar {
+			margin: 5px;
+			height: 6px;
+			width: 100%;
+			cursor: pointer;
+			background-color: #d0d8e6;
+			display: inline-block;
+			border-radius: 10px;
+		}
+
+		.progress__current {
+			height: inherit;
+			width: 0%;
+			background-color: #a3b3ce;
+			border-radius: 10px;
+		}
+	}
+}
+
+// 右侧控件
+.right-bar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-right: 50px;
+	.player-controls__item {
+		display: inline-flex;
+		margin: 10px;
+		color: #acb8cc;
+		cursor: pointer;
+		width: 25px;
+		height: 25px;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		transition: all 0.3s ease-in-out;
+		.icon {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.block {
+		display: flex;
+		justify-content: flex-start;
+		.el-slider {
+			width: 100px;
+			height: 25px;
+			margin-right: 10px;
+		}
+	}
+}
+
+// 抽屉样式
+.el-drawer__wrapper {
+	bottom: 100px;
+	// :deep(.el-drawer__container) {
+	// 	bottom: 100px;
+	// }
+}
+

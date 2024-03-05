@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.musicserver.mapper.SingerMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.musicserver.entity.Singer">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="sex" jdbcType="TINYINT" property="sex"/>
+        <result column="pic" jdbcType="VARCHAR" property="pic"/>
+        <result column="birth" jdbcType="VARCHAR" property="birth"/>
+        <result column="location" jdbcType="VARCHAR" property="location"/>
+        <result column="introduction" jdbcType="VARCHAR" property="introduction"/>
+    </resultMap>
+<!--    用sql标签代替想要写的东西-->
+    <sql id="Base_Column_List">
+        id,name,sex,pic,birth,location,introduction
+    </sql>
+
+<!--    新增插入-->
+    <insert id="insert" parameterType="com.example.musicserver.entity.Singer">
+        insert into singer
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                <if test="id != null">
+                    id,
+                </if>
+                <if test="name != null">
+                    name,
+                </if>
+                <if test="sex != null">
+                    sex,
+                </if>
+                <if test="pic != null">
+                    pic,
+                </if>
+                <if test="birth != null">
+                    birth,
+                </if>
+                <if test="location != null">
+                    location,
+                </if>
+                <if test="introduction != null">
+                    introduction,
+                </if>
+            </trim>
+            <trim prefix=" value (" suffix=")" suffixOverrides=",">
+                <if test="id != null">
+                    #{id},
+                </if>
+                <if test="name != null">
+                    #{name},
+                </if>
+                <if test="sex != null">
+                    #{sex},
+                </if>
+                <if test="pic != null">
+                    #{pic},
+                </if>
+                <if test="birth != null">
+                    #{birth},
+                </if>
+                <if test="location != null">
+                    #{location},
+                </if>
+                <if test="introduction != null">
+                    #{introduction},
+                </if>
+            </trim>
+    </insert>
+
+<!--    通过主键更新修改-->
+    <update id="update" parameterType="com.example.musicserver.entity.Singer">
+        update singer
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="sex != null">
+                sex = #{sex},
+            </if>
+            <if test="pic != null">
+                pic = #{pic},
+            </if>
+            <if test="birth != null">
+                birth = #{birth},
+            </if>
+            <if test="location != null">
+                location = #{location},
+            </if>
+            <if test="introduction != null">
+                introduction = #{introduction},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+<!--    通过主键删除-->
+    <delete id="delete" >
+        delete from  singer where id=#{id}
+    </delete>
+<!--    根据主键查询整个对象-->
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from singer
+        where id=#{id}
+    </select>
+
+
+
+<!--    查询所有歌手-->
+    <select id="allSinger" resultMap="BaseResultMap">
+        select
+            id, name, sex, pic, birth, location, introduction
+        from singer
+    </select>
+
+
+
+<!--    根据歌手名字模糊查询列表-->
+    <select id="singerOfName" resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List"/>
+        from singer
+        where name like #{name}
+    </select>
+<!--    根据性别查询-->
+    <select id="singerOfSex" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from singer
+        where sex = #{sex}
+    </select>
+</mapper>

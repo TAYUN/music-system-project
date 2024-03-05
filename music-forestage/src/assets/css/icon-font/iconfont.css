@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3987873 */
+  src: url('iconfont.woff2?t=1680190385897') format('woff2'),
+       url('iconfont.woff?t=1680190385897') format('woff'),
+       url('iconfont.ttf?t=1680190385897') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-quanping:before {
+  content: "\e6d9";
+}
+
+.icon-bofang:before {
+  content: "\e618";
+}
+
+.icon-heijiao:before {
+  content: "\e63e";
+}
+
+.icon-suiji:before {
+  content: "\e7b8";
+}
+
+.icon-bofang1:before {
+  content: "\e8a3";
+}
+
+.icon-icon-:before {
+  content: "\e649";
+}
+
+.icon-shangyishou-yuanshijituantubiao:before {
+  content: "\e62c";
+}
+
+.icon-xiayishou-yuanshijituantubiao:before {
+  content: "\e62d";
+}
+
+.icon-24gf-volumeCross:before {
+  content: "\ea0f";
+}
+
+.icon-24gf-volumeLow:before {
+  content: "\ea11";
+}
+
+.icon-24gf-volumeHigh:before {
+  content: "\ea12";
+}
+
+.icon-24gf-volumeZero:before {
+  content: "\ea13";
+}
+
+.icon-24gf-volumeMiddle:before {
+  content: "\ea14";
+}
+
+.icon-24gl-fullScreenEnter2:before {
+  content: "\ea68";
+}
+
+.icon-24gf-list5:before {
+  content: "\eb14";
+}
+
+.icon-Playerstop:before {
+  content: "\e6ae";
+}
+
+.icon-Notesmusic:before {
+  content: "\e6af";
+}
+
+.icon-Playerplay:before {
+  content: "\e6b0";
+}
+
+.icon-Playerpause:before {
+  content: "\e6b1";
+}
+
+.icon-slider_thumb:before {
+  content: "\e61c";
+}
+
+.icon-ziyuan322:before {
+  content: "\e787";
+}
+
+.icon-dajiantou-shang:before {
+  content: "\e64f";
+}
+
+.icon-ziyuan19:before {
+  content: "\e619";
+}
+
+.icon-bofangzhong:before {
+  content: "\e68f";
+}
+
+.icon-shunxubofang:before {
+  content: "\e6a1";
+}
+
+.icon-danquxunhuan:before {
+  content: "\f1f9";
+}
+
+.icon-liebiaoxunhuan:before {
+  content: "\f1fa";
+}
+
+.icon-xihuan:before {
+  content: "\e60e";
+}
+
+.icon-jiechuquanping:before {
+  content: "\e86a";
+}
+
+.icon-xihuan1:before {
+  content: "\ff47";
+}
+
+.icon-a-xihuanguanzhuaixin:before {
+  content: "\e616";
+}
+

@@ -1,0 +1,34 @@
+{
+	"name": "music-forestage",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build"
+	},
+	"dependencies": {
+		"axios": "^0.21.1",
+		"babel-polyfill": "^6.23.0",
+		"core-js": "^3.8.3",
+		"element-ui": "^2.15.7",
+		"jquery": "^2.2.3",
+		"vue": "^2.6.14",
+		"vue-router": "^3.1.2",
+		"vue-session": "^1.0.0",
+		"vuex": "^3.6.2"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "~5.0.0",
+		"@vue/cli-service": "~5.0.0",
+		"less": "^4.0.0",
+		"less-loader": "^8.0.0",
+		"node-sass": "^4.14.0",
+		"sass-loader": "^7.3.1",
+		"vue-template-compiler": "^2.6.14",
+		"webpack": "^5.51.1",
+		"webpack-cli": "^4.8.0",
+		"webpack-dev-server": "^4.1.0",
+		"webpack-bundle-analyzer": "^2.9.0",
+		"webpack-merge": "^4.1.0"
+	}
+}

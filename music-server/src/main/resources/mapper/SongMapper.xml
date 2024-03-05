@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.musicserver.mapper.SongMapper">
+    <resultMap id="BaseResultMap" type="com.example.musicserver.entity.Song">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="gq_singer_id" jdbcType="VARCHAR" property="gqSingerId"/>
+        <result column="gq_name" jdbcType="VARCHAR" property="gqName"/>
+        <result column="gq_introduction" jdbcType="VARCHAR" property="gqIntroduction"/>
+        <result column="gq_create_time" jdbcType="DATE" property="gqCreateTime"/>
+        <result column="gq_update_time" jdbcType="DATE" property="gqUpdateTime"/>
+        <result column="gq_pic" jdbcType="VARCHAR" property="gqPic"/>
+        <result column="gq_url" jdbcType="VARCHAR" property="gqUrl"/>
+        <result column="click_count" jdbcType="INTEGER" property="clickCount"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBLOBs" type="com.example.musicserver.entity.Song" extends="BaseResultMap">
+        <result column="gq_lyric" jdbcType="LONGVARCHAR" property="gqLyric"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,gq_singer_id,gq_name,gq_introduction,gq_create_time,gq_update_time,gq_pic,gq_url
+    </sql>
+
+    <sql id="Blob_Column_List">
+        id
+        ,gq_singer_id,gq_name,gq_introduction,gq_create_time,gq_update_time,gq_pic,gq_lyric,gq_url,click_count
+    </sql>
+
+    <insert id="insert" parameterType="com.example.musicserver.entity.Song">
+        insert into song
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="gqSingerId != null">
+                gq_singer_id,
+            </if>
+            <if test="gqName != null">
+                gq_name,
+            </if>
+            <if test="gqIntroduction != null">
+                gq_introduction,
+            </if>
+            gq_create_time,gq_update_time,
+            <if test="gqPic != null">
+                gq_pic,
+            </if>
+            <if test="gqLyric != null">
+                gq_lyric,
+            </if>
+            <if test="gqUrl != null">
+                gq_url,
+            </if>
+            <if test="clickCount != null">
+                click_count
+            </if>
+        </trim>
+        <trim prefix=" values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="gqSingerId != null">
+                #{gqSingerId},
+            </if>
+            <if test="gqName != null">
+                #{gqName},
+            </if>
+            <if test="gqIntroduction != null">
+                #{gqIntroduction},
+            </if>
+            now(),now(),
+            <if test="gqPic != null">
+                #{gqPic},
+            </if>
+            <if test="gqLyric != null">
+                #{gqLyric},
+            </if>
+            <if test="gqUrl != null">
+                #{gqUrl},
+            </if>
+            <if test="clickCount != null">
+                #{clickCount},
+            </if>
+        </trim>
+    </insert>
+    <!--这个mybatisplus内置了-->
+    <!--    <update id="update" parameterType="com.example.musicserver.entity.Song">-->
+    <!--        update song-->
+    <!--        <set>-->
+    <!--            <if test="gqSingerId != null">-->
+    <!--                gq_singer_id = #{gqSingerId},-->
+    <!--            </if>-->
+    <!--            <if test="gqName != null">-->
+    <!--                gq_name = #{gqName},-->
+    <!--            </if>-->
+    <!--            <if test="gqIntroduction != null">-->
+    <!--                gq_introduction = #{gqIntroduction},-->
+    <!--            </if>-->
+    <!--            gq_update_time = now(),-->
+    <!--            <if test="gqPic != null">-->
+    <!--                gq_pic = #{gqPic},-->
+    <!--            </if>-->
+    <!--            <if test="gqLyric != null">-->
+    <!--                gq_lyric = #{gqLyric},-->
+    <!--            </if>-->
+    <!--            <if test="gqUrl != null">-->
+    <!--                gq_url = #{gqUrl},-->
+    <!--            </if>-->
+    <!--        </set>-->
+    <!--        where id = #{id}-->
+    <!--    </update>-->
+
+    <delete id="delete" parameterType="java.lang.Integer">
+        delete
+        from song
+        where id = #{id}
+    </delete>
+
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Blob_Column_List"/>
+        from song
+        where id=#{id}
+    </select>
+
+    <select id="allSong" resultMap="ResultMapWithBLOBs">
+        select
+        <include refid="Blob_Column_List"/>
+        from song
+    </select>
+
+    <select id="songOfName" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">
+        select
+        <include refid="Blob_Column_List"/>
+        from song
+        where gq_name = #{gqName}
+    </select>
+
+    <!--    根据歌名模糊查询歌曲-->
+    <!--    <select id="likeSongOfName" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String">-->
+    <!--        select-->
+    <!--        <include refid="Blob_Column_List"/>-->
+    <!--        from song-->
+    <!--        where gq_name like #{gqName}-->
+    <!--    </select>-->
+    <!--    根据歌手id查询歌曲列表-->
+
+    <select id="songOfSingerId" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer">
+        select
+        <include refid="Blob_Column_List"/>
+        from song
+        where gq_singer_id = #{gqSingerId}
+    </select>
+
+    <!-- 根据歌曲 id 更新被点击数 -->
+    <update id="updateClickCountById" parameterType="java.lang.Integer">
+        UPDATE song
+        SET click_count = click_count + 1
+        WHERE id = #{id}
+    </update>
+</mapper>
